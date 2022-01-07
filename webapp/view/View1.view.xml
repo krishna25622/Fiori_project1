@@ -1,0 +1,38 @@
+<mvc:View
+    controllerName="sap.training.com.project1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page id="page" title="{i18n>title}">
+                    <content>
+                        <VBox id="inputDataVBox">
+                        <Input id="iorddid" placeholder="Enter SalesOrder ID" width="30%" ></Input>
+                        <Input id="iorddName" placeholder="Enter SalesOrder Name" width="30%"></Input>
+                        <Input id="iorddDesc" placeholder="Enter SalesOrder Description" width="30%"></Input>
+                        </VBox>
+                    <Button id="createBut" text="Create" press="createSalesOrder" width="20%"></Button>
+                    <Button id="updateBut" text="Update" press="updateSalesOrder" width="20%"></Button>
+                    <Button id="deleteBut" text="Delete" press="deleteSalesOrder" width="20%"></Button>
+                       <List id="idList" growing="true" growingThreshold="4" items="{oModel1>/SalesOrderSet}">
+                            <items>
+                                <ObjectListItem id="test1" title="{oModel1>SalesOrderID}" intro="{oModel1>Note}" type="Navigation" press="onSalesOrder">
+                                    <attributes>
+                                        <ObjectAttribute id="testll" text="{oModel1>NoteLanguage}"></ObjectAttribute>
+                                    </attributes>
+                                </ObjectListItem>
+                            </items>
+                        </List>
+                        <Panel id="idPanel1" expandable="true" expanded="false" headerText="Selected Product's BP">
+                        <Input id="prodid" value="{oModel1>BusinessPartnerID}"></Input>
+                        <Input id="Note" value="{oModel1>CompanyName}"></Input>
+                        </Panel>
+                    </content>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>
